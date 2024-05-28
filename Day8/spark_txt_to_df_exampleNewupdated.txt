@@ -1,0 +1,89 @@
+** CHANGING DATATYPE OF A COLUMN **
+from pyspark.sql.types import *
+deviceDF=spark.read.json("/user/root/devices.json")
+deviceDF.printSchema() --> release_dt is string type
+deviceDF.show(4,truncate=False)
+devicecolfixed=deviceDF.withColumn("release_dt",deviceDF.release_dt.cast(TimestampType()))
+deviceDF.printSchema() --> release_dt is Timestamp type
+
+** RENAMING COLUMN NAME **
+df = Seq((1, "John"), (2, "Jane"), (3, "Jim")).toDF("id", "name")
+renamedDf = df.withColumnRenamed("name", "full_name").withColumnRenamed("id", "person_id")
+
+** SEMI TO STRUCTURED USING LOG FILE **
+
+LOGdf=spark.read.option("sep"," ").schema("ipaddrs string,hipen string,userid string,times string,timzone string,request string,dataitems int,latitude int,website string,gaps string,browser string").csv("/user/root/A.log")
+
+newlogsDF=LOGdf.select("ipaddrs","userid",concat(LOGdf.times,lit(" "),LOGdf.timzone).alias("TimeStamp"),"request","dataitems","latitude","website","browser")
+
+
+
+
+
+
+
+
+
+
+
+from pyspark.sql.types import *
+empColumns = [
+StructField("EMPNO",LongType()),
+StructField("ENAME",StringType()),
+StructField("JOB",StringType()),
+StructField("MGRID",LongType()),
+StructField("HIREDATE",StringType()),
+StructField("SALARY",LongType()),
+StructField("COMM",LongType()),
+StructField("DEPTNO",LongType())
+]
+
+empschema = StructType(empColumns)
+
+empDF=spark.read.schema(empschema).csv("/user/root/EMP.csv")
+
+EMPNO: integer (nullable = true)
+ |-- ENAME: string (nullable = true)
+ |-- JOB: string (nullable = true)
+ |-- MGRID: integer (nullable = true)
+ |-- HIREDATE: string (nullable = true)
+ |-- SALARY: integer (nullable = true)
+ |-- COMM: string (nullable = true)
+ |-- DEPTNO: inte
+
+
+SELECT * FROM EMP --> SELECTION : IN SPARK --> df.show()
+SELECT ENAME,SALARY FROM EMP --> PROJECTION: IN SPARK --> df.select                                                           ("ENAME","SALARY")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

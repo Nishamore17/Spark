@@ -1,0 +1,24 @@
+SPARK TESTING
+COPY THE devices.json and base_stations.parquet FILES INTO HOME FOLDER OF ELEPHANT MACHINE PRSENT ON DESKTOP.
+OPEN TERMINAL AND LAUNCH PYSPARK
+# pyspark
+
+>>>devicesDF=spark.read.json("/root/devices.json")
+>>>devicesDF.printSchema()
+>>>devicesDF.show()
+
+>>>baseDF=spark.read.parquet("/root/base_stations.parquet")
+>>>baseDF.printSchema()
+>>>baseDF.show()
+
+
+SPARK AND KAFKA
+kafka-topics --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic peoples
+
+cd Desktop/
+kafka-console-producer --broker-list saibigdata.training.com:9092 --topic peoples < people.txt
+
+pyspark  --master local[*] --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2
+
+peopleDF=spark.readStream.format("kafka").option("kafka.bootstrap.servers","saibigdata.training.com:9092").option("subscribe","peoples").load()
+

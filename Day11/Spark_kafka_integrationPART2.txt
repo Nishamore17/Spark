@@ -1,0 +1,67 @@
+PLEASE DO THE BELOW AFTER YOU HAVE DONE PREVIOUS HANDS-ON 
+
+>>>from pyspark.sql import functions
+
+>>>valuesDF=peopleDF.select(functions.split(peopleDF.value,",").alias("Data"))
+
+
+>>>valuesquery=valuesDF.writeStream.format("console").option("truncate","false").outputMode("append").start()
+
+OPEN NEW TERMINAL
+Now load messages into the topic and see from spark the messages read
+
+#kafka-console-producer --broker-list elephant.kafka.com:9092 --topic test < people.txt
+
+COME BACK TO SPARK PROMPT AND SEE THE BELOW
+-------------------------------------------                                     
+Batch: 1
+-------------------------------------------
++-----------------------------+
+|Data                         |
++-----------------------------+
+|[02134, Hopper, Grace, 52]   |
+|[94020, Turing, Alan, 32]    |
+|[94020, Lovelace, Ada, 28]   |
+|[87501, Babbage, Charles, 49]|
+|[02134, Wirth, Niklaus, 48]  |
++-----------------------------+
+
+Press Enter
+
+>>>valuesquery.stop()
+
+DECLARING FIELDS
+>>>valuesfieldsDF=valuesDF.select(valuesDF.Data[0].cast("integer").alias("Pincode"),valuesDF.Data[1].alias("Fname"),valuesDF.Data[2].alias("Lname"),valuesDF.Data[3].cast("integer").alias("Age"))
+
+>>>valuesquery=valuesfieldsDF.writeStream.format("console").option("truncate","false").outputMode("append").start()
+
+NOW ADD DATA TO THE TOPIC USING PRODUCER AND SEE THE SPARK CONSOLE
+AT OS PROMPT [OPEN A NEW TERMINAL]
+#kafka-console-producer --broker-list localhost:9092 --topic test < people.txt
+
+AT SPARK TERMINAL
+-------------------------------------------
+Batch: 1
+-------------------------------------------
++-------+--------+-------+---+
+|Pincode|Fname   |Lname  |Age|
++-------+--------+-------+---+
+|2134   |Hopper  |Grace  |52 |
+|94020  |Turing  |Alan   |32 |
+|94020  |Lovelace|Ada    |28 |
+|87501  |Babbage |Charles|49 |
+|2134   |Wirth   |Niklaus|48 |
++-------+--------+-------+---+
+
+
+
+
+
+
+
+
+
+
+
+
+

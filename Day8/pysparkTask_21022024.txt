@@ -1,0 +1,12 @@
+1. Read the cricdata.txt and create dataframe from the same using below 
+   field names by creating appropiate schema:
+   
+   Team,Player_ID,Player,Matches,Runs,Wickets,Hundreds,Fifties,Speciality
+
+2. Join Player_ID and Player as single column with - sep 
+   EX: 498403-Yuvraj Singh. Provide the new column name as "PlayerInfo"
+
+3. Rename the column "Hundreds" as "Centuries"
+
+4. Select PlayerInfo, Matches,Runs,Wickets,Centuries and save it as parquet 
+   file.

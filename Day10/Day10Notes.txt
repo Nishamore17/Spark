@@ -1,0 +1,90 @@
+
+ STREAMING 
+STREAMING IS A CONTINIOUS FLOW OF DATA IN BATCHES IN A SPECFIED TIME INTERVAL.
+STREAMING ANALYTICS CAN BE CALLED AS REAL TIME ANALYTICS
+STREAMING CAN BE ALSO IMPLEMENTED AS CONTINIOUS ETL
+WE CAN IMPLEMENT END TO END STREAMING ANALYTICS USING PIPELINE
+PIPELINES: NiFi, DATABRICKS, AZURE, AWS
+
+SPARK STREAMING
+V1
+1. D-STREAMS
+2. RDD BASED
+3. EXTERNAL API
+4. NO OPTIMIZER
+
+V2
+1. STRUCUTRED STREAMING
+2. DATAFRAME API
+3. INTERNAL API
+4. OPTIMIZER BASED
+
+HOW STREAMING WORKS?
+1. SPARK COLLECTS THE DATA AS A GROUP IN A INTERVAL OF TIME WHICH IS CALLED 
+   MICRO BATCHES.
+2. MICRO BATCHES ARE LOADED INTO THE DATAFRAME.
+3. THESE DATAFRAMES ARE CALLED "UNBOUNDED DATAFRAMES"
+4. UNBOUNDED DATAFRAME IS CREATED USING "spark.readStream" METHOD.
+
+   spark.read.<fileformat> --> BOUNDED DATAFRAME
+   spark.readStream.<format> --> UNBOUNDED DATAFRAME
+
+5. STREAMING OR CREATION OF DATAFRAME IS ONLY AFTER WE GIVE ACTION COMMAND. 
+   ACTION COMMANDS LIKE show,take,collect WILL NOT WORK FOR SRREAMING 
+   DATAFRAME.
+6. STREAMING IS CONTROLLED USING start() and stop() FUNCTIONS.
+
+STEPS
+1. DEFINE THE SCHEMA : MAINLY IF SOURCE IS KAFKA
+2. CREATE UNBOUNDED DATAFRAME
+3. START
+4. PERFORM TRANSFORMATIONS: select,where,grtoupBy,orderBy
+5. WRITE --> ACTION; NOTE: start() IS USED WITH writeStream 
+6. STOP --> stop() TO STOP THE APPEND OF DATAFRAME.
+
+DATA OUTPUT IS SHOWN IN FORM OF BATCHES IF WE ARE PUSHING THE RESULT TO CONSOLE.
+
+pyspark> from pyspark.sql.types import *
+pyspark> activationsSchema = StructType([
+StructField("acct_num", IntegerType()),
+StructField("dev_id", StringType()),
+StructField("phone", StringType()),
+StructField("model", StringType())])
+
+mkdir /tmp/devsh-streaming
+
+activationsDF = spark.readStream.schema(activationsSchema).json("file:/tmp/devsh-streaming/"
+
+activedevices=activationsDF.select("acct_num","dev_id").where("....")
+
+activationsDF.printSchema()
+
+activationsDF.isStreaming
+
+activationsQuery = activedevices.writeStream.outputMode("append").
+format("console").option("truncate","false").start()
+
+
+./streamtest-file.sh /root/Desktop/streamsdata/activations_stream/ /tmp/devsh-streaming/
+
+SEE THE DATA FROM THE SPARK CONSOLE COMING IN BATCHES.
+
+activationsQuery.stop() --> To stop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

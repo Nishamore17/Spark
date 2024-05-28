@@ -1,0 +1,53 @@
+  
+  SPARK ON YARN
+1. SCHEDULING POLICY
+2. MPP WITH FAULT TOLERANCE
+3. BOTH SMALL JOBS AND BIG JOBS CAN SHARE THE RESOURCES
+4. HETEROGENIOUS
+
+pyspark  --master=yarn --deploy-mode=client --> driver sits at client side
+pyspark  --master=yarn --deploy-mode=cluster --> driver sits within cluster executor
+
+INFORMATION ABOUT THE SPARK JOBS CAN BE VIEWED USING SPARK UIs [driver]
+
+note: we can see UI only when u rin spark shell [REPL] or when spark job is running [Batch]
+
+SPARK UI WITHOUT YARN --> <thrift sever> :4040 
+SPARK WITH YARN --> resource manager webui --> <resource manager>:8088 --> Application master --> sparkUI
+
+SCHEDULER
+1. Fair scheduler
+2. Capacity scheduler
+
+WHERNEVER A JOB IS SUBMITTED BY A USER, THE JOB GOES TO A POOL [QUEUE]
+WE CAN DEFINE EXPLICT POOLS AND SET RESOURCE RESTRICTIONS TO THE POOL AND ASSOCIATE THE POOL TO THE USER. [POOL OR QUEUE]
+ EXECUTION PLAN
+LOGICAL PLAN:  RBO
+PHYSICAL PLAN: CBO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

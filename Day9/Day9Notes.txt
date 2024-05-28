@@ -1,0 +1,78 @@
+spark-shell --driver-java-options "-Dhive.metastore.uris=thrift://192.168.2.1:9083"
+
+
+create external table emp(empno int,ename string,job string,mgr int,hiredate string,salary int,comm int,deptno int)
+row format delimited
+fields terminated by ','
+location '/user/root/emp';
+
+val empDF=spark.read.table("default.emp")
+
+spark.sql("select * from default.emp").show
+
+newDF.write.saveAsTable("default.newtab")
+
+ DATAFRAME TRANSFORMATIONS
+DATAFRAME IS IMMUTABLE HENCE WE NEED TO PERFORM TRANSFORMATIONS BY CREATING ANOTHER DATAFRAME FROM EXISTING DATAFRAME.
+
+COMMANDS
+1. SELECT
+2. WHERE
+3. JOIN
+4. groupBy
+5. orderBy
+
+NOTE: NONE OF THE TRANSFORMATION GENERATES OR CREATES A DATAFRAME UNTIL ACTION OPERATION IS GIVEN. [LAZY EXECUTION]
+
+EX:
+empDF=spark.read.schema("empschema").csv("/user/root/EMP.csv")
+empsals=empDF.select("EMPNO","ENAME","SALARY")
+highsals=empsals.where("SALARY > 2000")
+highsals.show()
+
+OR
+CHAINED TRANSFORMATION
+
+empDF=spark.read.schema("empschema").csv("/user/root/EMP.csv").select("EMPNO","ENAME","SALARY").where("SALARY > 2000")
+
+empDF.show()
+
+OR
+empDF.createOrReplaceTempView("EMP")
+highsals=spark.sql("SELECT EMPNO,ENAME,SALARY FROM EMP WHERE SALARY>2000)
+
+
+* / + - [and or not]
+
+GROUP ALIAS
+empDF.groupBy("deptno").agg(max("SALARY").alias("MAX_SALARY")).show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

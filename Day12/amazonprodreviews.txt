@@ -1,0 +1,60 @@
+product/productId: B0000DF3IX
+product/title: Paprika Hungarian Sweet
+product/price: unknown
+review/userId: A244MHL2UN2EYL
+review/profileName: P. J. Whiting "book cook"
+review/helpfulness: 0/0
+review/score: 5.0
+review/time: 1127088000
+review/summary: Sweet Paprika: A sweet ingredient!
+review/text: While in Hungary we were given a recipe for Hungarian Goulash. It needs sweet paprika. This was terrific in that dish and others. I will purchase it again when I need more.
+product/productId: B0002QF1LK
+product/title: Quaker Honey Graham Oh's 10.5 oz - (6 pack)
+product/price: 26.82
+review/userId: A3FL7SXVYMC5NR
+review/profileName: Brittany
+review/helpfulness: 3/3
+review/score: 5.0
+review/time: 1138147200
+review/summary: Best Cereal BY FAR
+review/text: Without a doubt, I would recommend this wholesome and sweet cereal treat to anyone. The crunchy o-shaped pieces are filled with crispy rice, graham cracker bits, and infused with delicious honey flavor. "Oh! What a great cereal!"
+product/productId: B0002QF1LK
+product/title: Quaker Honey Graham Oh's 10.5 oz - (6 pack)
+product/price: 26.82
+review/userId: A12IDQSS4OW33B
+review/profileName: Robin Goodfellow
+review/helpfulness: 3/3
+review/score: 5.0
+review/time: 1118016000
+review/summary: Oh!
+review/text: This cereal is so sweet....yet so good for you! One taste=ADDICTION!!!! I just tried this cereal out of curiousity and I was hooked! It is an excellent breakfast choice, or just any time to eat! Especially as breakfast because you will crave more honey taste and you won't be hungry later {probably because of how much you'd eat} and it is actually sweeter and better than Honey Bunches of Oats. Cap'n Crunch Berries is an option, but this splendid cereal is SO FILLED WITH A HONEY-FILLED TASTE! I have not tried much better tasting cereal than this! Oh!
+product/productId: B0002QF1LK
+product/title: Quaker Honey Graham Oh's 10.5 oz - (6 pack)
+product/price: 26.82
+review/userId: A2GZKHC1M4PKF4
+review/profileName: lostinseganet
+review/helpfulness: 2/2
+review/score: 3.0
+review/time: 1206489600
+review/summary: Oh's what a cereal! (^_^) ...Oh's what a price (O_o)
+review/text: Man I love Oh's cereal. It is really great to the last bite, but the size of the box its so small compared to all the other cereals out there. The price is crazy for such a small box...but oh's is one of the best cereals I have ever ever eaten. It keeps me coming back despite the small box, and crazy price. If you never had it you should try it just once. It is wonderful I give it 3 stars only because of the price and how much food you get. If the portions were more fair even for this price it would be five star gold...
+product/productId: B0002QF1LK
+product/title: Quaker Honey Graham Oh's 10.5 oz - (6 pack)
+product/price: 26.82
+review/userId: AUGT2DOGKLHIN
+review/profileName: Vahe S. Geuvjehizian
+review/helpfulness: 2/2
+review/score: 5.0
+review/time: 1177545600
+review/summary: ITS GOTTA BE THE BEST CEREAL OF ALL TIME
+review/text: And I've tried alot of cereals. This is by far the best.Its like the cereals I used to eat in the 80's, so sweet, yet so filling.I used to slam this cereal before I tried it.Now I'm hooked.
+product/productId: B0002QF1LK
+product/title: Quaker Honey Graham Oh's 10.5 oz - (6 pack)
+product/price: 26.82
+review/userId: A3BLSHNN3M27VI
+review/profileName: K. McClellan
+review/helpfulness: 2/2
+review/score: 5.0
+review/time: 1154390400
+review/summary: Yummmmm
+review/text: Oh's has been my favorite cereal as a kid and still is an essential staple of my college diet. It's absolutely f'ing delicious.
